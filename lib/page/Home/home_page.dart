@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import './widget/search.dart';
+import './widget/box.dart';
+import './widget/box2.dart';
+import './widget/event.dart';
+import './widget/category.dart';
+import './widget/listArticel.dart';
+import './widget/tRead.dart';
 
 class home_page extends StatelessWidget {
   const home_page({
@@ -16,7 +22,15 @@ class home_page extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
+
+              //SEARCH
               search(),
+
+              SizedBox(
+                height: 28,
+              ),
+
+              //H1
               Container(
                   width: double.infinity,
                   height: 40,
@@ -33,38 +47,25 @@ class home_page extends StatelessWidget {
                       ),
                     ],
                   )),
-              Stack(
-                alignment: Alignment.bottomLeft,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 344,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25),
-                    child: Container(
-                        width: 350,
-                        height: 320,
-                        decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(20)),
-                        alignment: Alignment.center,
-                        child: Text("box")),
-                  ),
-                ],
+              //BOX1
+              Box1(
+                "Menyambut Hari Tolerasi Internasional Duta Damai Jatim Adakan Dialog Lintas Agama",
+                "Duta Damai Jawa Timur",
+                "17/11/2020",
               ),
+
               SizedBox(
                 height: 17,
               ),
-              Container(
-                height: 8,
-                width: 40,
-                color: Colors.grey,
-                child: Text("Indicator"),
-              ),
+              //Iklan
+              event(),
+              //aaaaaaaaaaaaaaaaaaaaaaaaa
+
               SizedBox(
                 height: 32,
               ),
+
+              //H2
               Container(
                 height: 50,
                 width: double.infinity,
@@ -94,67 +95,12 @@ class home_page extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                width: double.infinity,
-                height: 184,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 120,
-                          height: 160,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Color(0xFFD9F5D2),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Container(
-                          width: 120,
-                          height: 160,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Color(0xFFD9F5D2),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Container(
-                          width: 120,
-                          height: 160,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Color(0xFFD9F5D2),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Container(
-                          width: 120,
-                          height: 160,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Color(0xFFD9F5D2),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              //Kategori
+              category(),
               SizedBox(
                 height: 32,
               ),
+              //H3
               Container(
                   width: double.infinity,
                   height: 40,
@@ -167,171 +113,14 @@ class home_page extends StatelessWidget {
                       Text("TRENDING STORY IN LIFESTYLE"),
                     ],
                   )),
-              Stack(
-                children: [
-                  Container(
-                    height: 114,
-                    width: double.infinity,
-                  ),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        height: 121,
-                        width: double.infinity,
-                        //color: Colors.grey,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 25, right: 25),
-                        child: Container(
-                          height: 97,
-                          width: double.infinity,
-                          //color: Colors.amber,
-                          child: Row(children: [
-                            Container(
-                              width: 97,
-                              height: 97,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.amber,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 16,
-                            ),
-                            Flexible(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "LIFESTYLE",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 12),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    "A man stand alone watch the full Moon Night",
-                                    maxLines: 2,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14),
-                                  ),
-                                  SizedBox(
-                                    height: 14,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        height: 27,
-                                        width: 27,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(50),
-                                            color: Colors.amber),
-                                      ),
-                                      SizedBox(
-                                        width: 8,
-                                      ),
-                                      Text(
-                                        "Isabella   7 Min",
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )
-                          ]),
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Stack(
-                alignment: Alignment.topLeft,
-                children: [
-                  Container(
-                    height: 267,
-                    width: double.infinity,
-                    //color: Colors.grey,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 25, right: 25, top: 10, bottom: 10),
-                    child: Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Go to bed early and get up early.",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 20),
-                          ),
-                          SizedBox(
-                            height: 22,
-                          ),
-                          Container(
-                            height: 8,
-                            width: 32,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.green),
-                          ),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          Text(
-                            "Staying awake while tired will make you feel more tired and irritable the next day. It’s almost never worth it to stay up late watching TV or getting extra work done. You’ll be more efficient if you start your day earlier and you won’t have to live with the hangover of being tired all the time…",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 14),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Read Full Story",
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF0075FF),
-                    minimumSize: Size(double.infinity, 48),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Container(
-                color: Color(0xFFF3F3F3),
-                width: 373,
-                height: 3,
-              ),
-              SizedBox(
-                height: 24,
-              ),
+              //TrendRead
+              trendingRead(
+                  "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
+                  "Warta",
+                  "Duta Damai Jawa Timur",
+                  "19/04/2023",
+                  "Malang:- Badan Nasional Penanggulangan Terorisme Republik Indonesia (BNPT RI) bersama Duta Damai Jawa Timur menyelenggarakan dialog kebangsaan di kalangan pemuda di Universitas Brawijaya bertajuk Deen Assalam, Senin, (17/4)."),
+              //h4
               Container(
                 height: 50,
                 width: double.infinity,
@@ -361,105 +150,21 @@ class home_page extends StatelessWidget {
                   ],
                 ),
               ),
-              Stack(
-                alignment: Alignment.bottomLeft,
-                children: [
-                  Container(
-                    height: 267,
-                    width: double.infinity,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25, right: 25),
-                    child: Container(
-                      height: 243.25,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.grey,
-                      ),
-                    ),
-                  )
-                ],
+              //Box2
+              box2(
+                "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
+                "Duta Damai Jawa Timur",
+                "19/04/2023",
               ),
               SizedBox(
                 height: 16,
               ),
-              Stack(
-                alignment: Alignment.bottomLeft,
-                children: [
-                  Container(
-                    height: 121,
-                    width: double.infinity,
-                    //color: Colors.grey,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25, right: 25),
-                    child: Container(
-                      height: 97,
-                      width: double.infinity,
-                      //color: Colors.amber,
-                      child: Row(children: [
-                        Container(
-                          width: 97,
-                          height: 97,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.amber,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Flexible(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "LIFESTYLE",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500, fontSize: 12),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "A man stand alone watch the full Moon Night",
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 14),
-                              ),
-                              SizedBox(
-                                height: 14,
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    height: 27,
-                                    width: 27,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(50),
-                                        color: Colors.amber),
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Text(
-                                    "Isabella   7 Min",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                        )
-                      ]),
-                    ),
-                  )
-                ],
-              ),
+              //Articel
+              listArticel(
+                  "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
+                  "Duta Damai Jawa Timur",
+                  "19/04/2023",
+                  "Warta"),
               SizedBox(
                 height: 8,
               ),
@@ -471,81 +176,56 @@ class home_page extends StatelessWidget {
               SizedBox(
                 height: 8,
               ),
-              Stack(
-                alignment: Alignment.bottomLeft,
-                children: [
-                  Container(
-                    height: 121,
-                    width: double.infinity,
-                    //color: Colors.grey,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25, right: 25),
-                    child: Container(
-                      height: 97,
-                      width: double.infinity,
-                      //color: Colors.amber,
-                      child: Row(children: [
-                        Container(
-                          width: 97,
-                          height: 97,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.amber,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 16,
-                        ),
-                        Flexible(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "LIFESTYLE",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500, fontSize: 12),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "A man stand alone watch the full Moon Night",
-                                maxLines: 2,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 14),
-                              ),
-                              SizedBox(
-                                height: 14,
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    height: 27,
-                                    width: 27,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(50),
-                                        color: Colors.amber),
-                                  ),
-                                  SizedBox(
-                                    width: 8,
-                                  ),
-                                  Text(
-                                    "Isabella   7 Min",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                        )
-                      ]),
-                    ),
-                  )
-                ],
+              //Articel
+              listArticel(
+                  "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
+                  "Duta Damai Jawa Timur",
+                  "19/04/2023",
+                  "Warta"),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                color: Color(0xFFF3F3F3),
+                width: 373,
+                height: 3,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              //Articel
+              listArticel(
+                  "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
+                  "Duta Damai Jawa Timur",
+                  "19/04/2023",
+                  "Warta"),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                color: Color(0xFFF3F3F3),
+                width: 373,
+                height: 3,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              //Articel
+              listArticel(
+                  "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
+                  "Duta Damai Jawa Timur",
+                  "19/04/2023",
+                  "Warta"),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                color: Color(0xFFF3F3F3),
+                width: 373,
+                height: 3,
+              ),
+              SizedBox(
+                height: 8,
               ),
             ],
           ),

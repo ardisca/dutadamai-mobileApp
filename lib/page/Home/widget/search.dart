@@ -12,18 +12,19 @@ class search extends StatelessWidget {
         height: 40,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          //  color: Colors.grey,
+          //color: Colors.grey,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
               height: 38,
               width: 38,
-              child: Text("Logo"),
+              //child: Text("Logo"),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.grey,
+                image: DecorationImage(image: AssetImage("asset/logobnpt.png")),
               ),
             ),
             SizedBox(
@@ -51,10 +52,10 @@ class search extends StatelessWidget {
             Container(
               height: 38,
               width: 38,
-              child: Text("Logo"),
+              //child: Text("Logo"),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.grey,
+                image: DecorationImage(image: AssetImage("asset/logo1.png")),
               ),
             ),
           ],
