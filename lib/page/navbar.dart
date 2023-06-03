@@ -5,9 +5,11 @@ import 'package:flutter_application_1/page/Menu/menu_page.dart';
 import 'Home/home_page.dart';
 import 'Menu/menu_page.dart';
 import 'Setting/setting_page.dart';
+import 'Thems/thema.dart';
 import 'Video/video_page.dart';
 import 'Member/member_page.dart';
 import 'testpages.dart';
+import 'package:get/get.dart';
 
 class navbarpage extends StatefulWidget {
   const navbarpage({super.key});
@@ -19,6 +21,7 @@ class navbarpage extends StatefulWidget {
 //Belajar NAVIGATION BAR
 
 class _navbarpageState extends State<navbarpage> {
+  final ThemeController _themeController = Get.put(ThemeController());
   late int index;
   List showWidget = [
     home_page(),
@@ -29,7 +32,7 @@ class _navbarpageState extends State<navbarpage> {
   ];
   @override
   void initState() {
-    index = 3;
+    index = 0;
     super.initState();
   }
 
@@ -41,9 +44,9 @@ class _navbarpageState extends State<navbarpage> {
         height: 75,
         child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: Colors.blueAccent,
-            backgroundColor: Colors.white,
-            unselectedItemColor: Colors.black,
+            // selectedItemColor: Colors.blueAccent,
+            // backgroundColor: Colors.white,
+            // unselectedItemColor: Colors.black,
             currentIndex: index,
             showUnselectedLabels: true,
             onTap: (value) {

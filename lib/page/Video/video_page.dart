@@ -108,14 +108,14 @@ class video_page extends StatelessWidget {
                               ),
                               Text("Duta Damai Jawa Timur",
                                   style: TextStyle(
-                                      color: Colors.black,
+                                      //color: Colors.black,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500)),
                             ],
                           ),
                           Text("31/05/2023",
                               style: TextStyle(
-                                  color: Colors.black,
+                                  //color: Colors.black,
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500))
                         ],
