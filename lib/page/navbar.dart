@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_application_1/page/Menu/menu_page.dart';
 import 'Home/home_page.dart';
-import 'Menu/menu_page.dart';
 import 'Setting/setting_page.dart';
 import 'Thems/thema.dart';
 import 'Video/video_page.dart';

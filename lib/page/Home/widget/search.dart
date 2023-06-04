@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:get/get.dart';
+import '../../List/list_page.dart';
+
 class search extends StatelessWidget {
   const search({
     super.key,
@@ -32,9 +35,14 @@ class search extends StatelessWidget {
             ),
             Flexible(
               child: TextField(
+                textInputAction: TextInputAction.search,
                 textAlign: TextAlign.start,
                 autofocus: false,
                 textAlignVertical: TextAlignVertical.bottom,
+                onSubmitted: (value) {
+                  Get.to(list_page("${value} Search"));
+                  //print("${value}");
+                },
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search, color: Colors.black),
                     filled: true,

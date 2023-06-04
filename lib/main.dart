@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/page/Artikel/artikel_page.dart';
+import 'package:flutter_application_1/page/List/list_page.dart';
 import 'package:flutter_application_1/page/Thems/thema.dart';
 import 'package:flutter_application_1/page/splash.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'page/Home/home_page.dart';
-import './page/Home/home_page.dart';
-import './page/navbar.dart';
 import 'package:get/get.dart';
 
 void main() {
