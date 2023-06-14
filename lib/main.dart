@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ArtikelView.dart';
 import 'package:flutter_application_1/page/Artikel/artikel_page.dart';
 import 'package:flutter_application_1/page/List/list_page.dart';
 import 'package:flutter_application_1/page/Thems/thema.dart';
 import 'package:flutter_application_1/page/splash.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import './ArtikelView.dart';
 
 void main() {
   runApp(FirstPage());
@@ -24,7 +26,7 @@ class FirstPage extends StatelessWidget {
       theme: lightTheme,
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
-      home: splashscreen(),
+      home: ArtikelView(),
     );
   }
 }
