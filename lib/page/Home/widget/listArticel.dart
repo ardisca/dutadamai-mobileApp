@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class listArticel extends StatelessWidget {
-  listArticel(this.judul, this.autor, this.tgl, this.kategori);
+  listArticel(this.judul, this.autor, this.tgl, this.kategori, this.img);
   String judul;
   String autor;
   String tgl;
   String kategori;
+  String img;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -27,12 +28,24 @@ class listArticel extends StatelessWidget {
                 width: 97,
                 height: 97,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.amber,
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            "https://dutadamaijawatimur.id/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-15.46.07-750x375.jpg"),
-                        fit: BoxFit.cover)),
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.black,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: img != ""
+                      ? FadeInImage(
+                          placeholder: NetworkImage(
+                              "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"),
+                          image: NetworkImage(img ?? ''),
+                          fit: BoxFit.cover,
+                        )
+                      : Image(
+                          image: NetworkImage(
+                              "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                ),
               ),
               SizedBox(
                 width: 16,

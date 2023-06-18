@@ -38,9 +38,10 @@ class search extends StatelessWidget {
                 textInputAction: TextInputAction.search,
                 textAlign: TextAlign.start,
                 autofocus: false,
+                //maxLength: 15,
                 textAlignVertical: TextAlignVertical.bottom,
                 onSubmitted: (value) {
-                  Get.to(list_page("${value} Search"));
+                  Get.to(list_page("${value} Search", "", value));
                   //print("${value}");
                 },
                 decoration: InputDecoration(

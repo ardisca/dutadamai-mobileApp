@@ -164,7 +164,8 @@ class home_page extends StatelessWidget {
                   "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
                   "Duta Damai Jawa Timur",
                   "19/04/2023",
-                  "Warta"),
+                  "Warta",
+                  "https://www.sasa.co.id/medias/page_medias/SKU.png"),
               SizedBox(
                 height: 8,
               ),
@@ -181,7 +182,8 @@ class home_page extends StatelessWidget {
                   "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
                   "Duta Damai Jawa Timur",
                   "19/04/2023",
-                  "Warta"),
+                  "Warta",
+                  "https://www.sasa.co.id/medias/page_medias/SKU.png"),
               SizedBox(
                 height: 8,
               ),
@@ -198,7 +200,8 @@ class home_page extends StatelessWidget {
                   "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
                   "Duta Damai Jawa Timur",
                   "19/04/2023",
-                  "Warta"),
+                  "Warta",
+                  "https://www.sasa.co.id/medias/page_medias/SKU.png"),
               SizedBox(
                 height: 8,
               ),
@@ -215,7 +218,8 @@ class home_page extends StatelessWidget {
                   "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
                   "Duta Damai Jawa Timur",
                   "19/04/2023",
-                  "Warta"),
+                  "Warta",
+                  "https://www.sasa.co.id/medias/page_medias/SKU.png"),
               SizedBox(
                 height: 8,
               ),

@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/page/Artikel/artikel_page.dart';
-
+import '../../controler/ArtikelController.dart';
+import '../../model/list_artikel.dart';
 import 'package:get/get.dart';
 import '../Home/widget/listArticel.dart';
 
-class list_page extends StatelessWidget {
-  list_page(this.categori);
+import 'package:html/parser.dart' as html;
+import 'package:intl/intl.dart';
 
+class list_page extends StatelessWidget {
+  list_page(this.categori, this.id, this.search);
+  String id;
   String categori;
+  String search;
+  //final ArtikelController artikelController = Get.put(ArtikelController(id));
+
   @override
   Widget build(BuildContext context) {
+    late ArtikelController artikelController =
+        Get.put(ArtikelController(id, search));
+
     return Scaffold(
       body: SafeArea(
           child: Center(
@@ -46,7 +56,7 @@ class list_page extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text("${categori} List",
+                    Text("${categori} ${id} List",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
                     SizedBox(
@@ -88,14 +98,63 @@ class list_page extends StatelessWidget {
             ),
             //listArt(),
             Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 15,
-                itemBuilder: (context, index) {
-                  return listArt("${categori}");
+              child: Obx(
+                () {
+                  if (artikelController.artikelList.isEmpty) {
+                    // Menampilkan CircularProgressIndicator() dengan penundaan waktu
+                    return FutureBuilder(
+                      future: Future.delayed(
+                          Duration(seconds: 2)), // Mengatur waktu penundaan
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          // Menampilkan CircularProgressIndicator() saat dalam penundaan
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          // Menampilkan pesan jika waktu penundaan selesai dan artikelList masih kosong
+                          return Center(
+                            child: Text("Tidak ada data yang ditemukan"),
+                          );
+                        }
+                      },
+                    );
+                  } else if (artikelController.artikelList.length == 0) {
+                    // Menampilkan "Data Tidak Ditemukan" jika artikelList tidak kosong, tapi tidak ada data
+                    return Center(
+                      child: Text("Data Tidak Ditemukan"),
+                    );
+                  } else {
+                    // Menampilkan ListView jika artikelList berisi data
+                    return ListView.builder(
+                      itemCount: artikelController.artikelList.length + 1,
+                      itemBuilder: (context, index) {
+                        if (index == artikelController.artikelList.length) {
+                          return ElevatedButton(
+                            onPressed: () {
+                              artikelController.fetchNextPageArtikelList();
+                            },
+                            child: Text("Load More"),
+                          );
+                        } else {
+                          ListArtikel artikel =
+                              artikelController.artikelList[index];
+                          return listArt(
+                            "categr",
+                            _parseHtmlString(artikel.title.rendered),
+                            artikel.jetpackFeaturedMediaUrl,
+                            waktu(artikel.date),
+                            _parseHtmlString(artikel.content.rendered)
+                                .replaceAll(RegExp('\n\n\n\n'), '\n\n'),
+                          );
+                        }
+                      },
+                    );
+                  }
                 },
               ),
-            )
+            ),
           ],
         ),
       )),
@@ -103,28 +162,45 @@ class list_page extends StatelessWidget {
   }
 }
 
+String _parseHtmlString(String htmlString) {
+  var text = html.parse(htmlString).body!.text;
+  return text;
+}
+
+String waktu(DateTime dateTime) {
+  String formattedDate = DateFormat('yyyy-MM-dd').format(dateTime);
+
+  return formattedDate;
+}
+
+class Data {
+  final String data1;
+  final String data2;
+
+  Data({required this.data1, required this.data2});
+}
+
 class listArt extends StatelessWidget {
-  listArt(this.categr);
+  listArt(this.categr, this.judul, this.img, this.tgl, this.isi);
   String categr;
+  String judul;
+  String img;
+  String tgl;
+  String isi;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Get.to(
-          artikel_page(
-              "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
-              categr),
+          artikel_page(judul, categr, img, tgl, isi),
           transition: Transition.downToUp,
         );
       },
       child: Column(
         children: [
           //Articel
-          listArticel(
-              "BNPT-DUTA DAMAI JAWA TIMUR GELAR DIALOG KEBANGSAAN DI KALANGAN PEMUDA",
-              "Duta Damai Jawa Timur",
-              "19/04/2023",
-              categr),
+          listArticel(judul, "Duta Damai Jawa Timur", tgl, categr, img),
           SizedBox(
             height: 12.5,
           ),

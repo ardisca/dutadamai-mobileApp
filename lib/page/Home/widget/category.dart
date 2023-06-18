@@ -21,7 +21,7 @@ class category extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page("Warta"));
+                  Get.to(list_page("Warta", "4", ""));
                 },
                 child: Container(
                   width: 120,
@@ -54,7 +54,7 @@ class category extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page("Urun Ide"));
+                  Get.to(list_page("Urun Ide", "5", ""));
                 },
                 child: Container(
                   width: 120,
@@ -83,7 +83,7 @@ class category extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page("Bercerita"));
+                  Get.to(list_page("Bercerita", "1797", ""));
                 },
                 child: Container(
                   width: 120,
@@ -112,7 +112,7 @@ class category extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page("Sajak"));
+                  Get.to(list_page("Sajakk", "1798", ""));
                 },
                 child: Container(
                   width: 120,

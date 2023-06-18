@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import '../Home/widget/search.dart';
+import '../List/list_page.dart';
 
 class menu_page extends StatelessWidget {
   @override
@@ -45,25 +46,30 @@ class menu_page extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Column(
                         children: [
-                          Container(
-                            height: 75,
-                            width: 75,
-                            child: Padding(
-                              padding: EdgeInsets.all(
-                                  15), // Ganti dengan nilai padding yang diinginkan
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        "asset/menu/newsarticle.png"),
-                                    fit: BoxFit.cover,
+                          InkWell(
+                            onTap: () {
+                              Get.to(list_page("Menu", "", ""));
+                            },
+                            child: Container(
+                              height: 75,
+                              width: 75,
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                    15), // Ganti dengan nilai padding yang diinginkan
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          "asset/menu/newsarticle.png"),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.amber,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: Colors.amber,
+                              ),
                             ),
                           ),
                           SizedBox(
