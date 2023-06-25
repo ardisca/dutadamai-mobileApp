@@ -4,21 +4,22 @@ import '../../controler/ArtikelController.dart';
 import '../../model/list_artikel.dart';
 import 'package:get/get.dart';
 import '../Home/widget/listArticel.dart';
-
+import 'package:get/state_manager.dart';
 import 'package:html/parser.dart' as html;
 import 'package:intl/intl.dart';
 
 class list_page extends StatelessWidget {
-  list_page(this.categori, this.id, this.search);
-  String id;
+  list_page(
+      {required this.categori, required this.idCategori, required this.search});
+
   String categori;
+  String idCategori;
   String search;
-  //final ArtikelController artikelController = Get.put(ArtikelController(id));
 
   @override
   Widget build(BuildContext context) {
-    late ArtikelController artikelController =
-        Get.put(ArtikelController(id, search));
+    final ArtikelController artikelController =
+        Get.put(ArtikelController(idCategori, search, ""));
 
     return Scaffold(
       body: SafeArea(
@@ -56,7 +57,7 @@ class list_page extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text("${categori} ${id} List",
+                    Text("${categori} ${idCategori} List",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
                     SizedBox(
@@ -141,7 +142,10 @@ class list_page extends StatelessWidget {
                           ListArtikel artikel =
                               artikelController.artikelList[index];
                           return listArt(
-                            "categr",
+                            // "${stringifyList(getDataString([
+                            //       artikel.categories[0]
+                            //     ]))}",
+                            idCategori,
                             _parseHtmlString(artikel.title.rendered),
                             artikel.jetpackFeaturedMediaUrl,
                             waktu(artikel.date),
@@ -160,6 +164,27 @@ class list_page extends StatelessWidget {
       )),
     );
   }
+}
+
+// Map<int, List<String>> KategoriData = {
+//   7: ['Warta'],
+//   5: ['Urun Ide'],
+//   1797: ['Bercerita'],
+//   1798: ['Sajak'],
+// };
+
+// List<String> getDataString(List<int> profil) {
+//   List<String> result = [];
+//   for (int data in profil) {
+//     if (KategoriData.containsKey(data)) {
+//       result.addAll(KategoriData[data]!);
+//     }
+//   }
+//   return result;
+// }
+
+String stringifyList(List<String> list) {
+  return list.join(', ');
 }
 
 String _parseHtmlString(String htmlString) {
@@ -200,7 +225,7 @@ class listArt extends StatelessWidget {
       child: Column(
         children: [
           //Articel
-          listArticel(judul, "Duta Damai Jawa Timur", tgl, categr, img),
+          listArticel(judul, "DD JTimur", tgl, categr, img),
           SizedBox(
             height: 12.5,
           ),

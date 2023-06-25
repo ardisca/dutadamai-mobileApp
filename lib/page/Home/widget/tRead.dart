@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../Artikel/artikel_page.dart';
 
 class trendingRead extends StatelessWidget {
-  trendingRead(this.judul, this.kategori, this.author, this.tgl, this.isi);
+  trendingRead(this.judul, this.kategori, this.author, this.tgl, this.isi,
+      this.img, this.isiR);
   String judul;
   String kategori;
   String author;
   String tgl;
   String isi;
+  String isiR;
+  String img;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,12 +42,19 @@ class trendingRead extends StatelessWidget {
                         width: 97,
                         height: 97,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.amber,
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://dutadamaijawatimur.id/wp-content/uploads/2023/04/WhatsApp-Image-2023-04-17-at-15.46.07-750x375.jpg"),
-                                fit: BoxFit.cover)),
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.amber,
+                          image: img.isNotEmpty
+                              ? DecorationImage(
+                                  image: NetworkImage(img),
+                                  fit: BoxFit.cover,
+                                )
+                              : DecorationImage(
+                                  image:
+                                      AssetImage("asset/artikel/imgKosong.jpg"),
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
                       ),
                       SizedBox(
                         width: 16,
@@ -149,7 +162,9 @@ class trendingRead extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(20),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(artikel_page(judul, "Urun Ide", img, tgl, isiR));
+            },
             child: Text(
               "Read Full Story",
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
@@ -167,7 +182,9 @@ class trendingRead extends StatelessWidget {
           height: 24,
         ),
         Container(
-          color: Color(0xFFF3F3F3),
+          color: Theme.of(context).brightness == Brightness.light
+              ? Color(0xFFF3F3F3) // warna untuk light mode
+              : Color(0xFF4B4B4B),
           width: 373,
           height: 3,
         ),

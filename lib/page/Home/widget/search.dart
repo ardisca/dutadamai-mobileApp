@@ -41,14 +41,17 @@ class search extends StatelessWidget {
                 //maxLength: 15,
                 textAlignVertical: TextAlignVertical.bottom,
                 onSubmitted: (value) {
-                  Get.to(list_page("${value} Search", "", value));
+                  Get.to(list_page(
+                      categori: "Search", idCategori: "", search: value));
                   //print("${value}");
                 },
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search, color: Colors.black),
                     filled: true,
                     hintText: "Search",
-                    fillColor: Color(0xFFE7EBF6),
+                    fillColor: Theme.of(context).brightness == Brightness.light
+                        ? Color(0xFFE7EBF6) // warna untuk light mode
+                        : Colors.grey,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
                       borderSide: BorderSide.none,

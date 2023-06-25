@@ -36,13 +36,16 @@ class _navbarpageState extends State<navbarpage> {
 
   @override
   Widget build(BuildContext context) {
+    final Brightness brightnessValue =
+        MediaQuery.of(context).platformBrightness;
+    bool isDark = brightnessValue == Brightness.dark;
     return Scaffold(
       body: showWidget[index],
       bottomNavigationBar: SizedBox(
         height: 75,
         child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            // selectedItemColor: Colors.blueAccent,
+            //selectedItemColor: Colors.blueAccent,
             // backgroundColor: Colors.white,
             // unselectedItemColor: Colors.black,
             currentIndex: index,
@@ -55,42 +58,48 @@ class _navbarpageState extends State<navbarpage> {
             items: [
               BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage('asset/icon/Ihome.png'),
+                  AssetImage(isDark
+                      ? 'asset/icon/iconHomeDarkMode.png'
+                      : 'asset/icon/iconHomeLightMode.png'),
                   //  size: 48.0,
                   //color: Colors.green,
                 ),
                 label: "Home",
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('asset/icon/Ivideo1.png'),
-                  //  size: 48.0,
-                  //color: Colors.green,
-                ),
+                icon: ImageIcon(AssetImage(isDark
+                        ? 'asset/icon/iconVideoDarkMode.png'
+                        : 'asset/icon/iconVideoLightMode.png')
+                    //  size: 48.0,
+                    //color: Colors.green,
+                    ),
                 label: "Video",
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('asset/icon/Imenu.png'),
-                  //  size: 48.0,
-                  //color: Colors.green,
-                ),
+                icon: ImageIcon(AssetImage(isDark
+                        ? 'asset/icon/iconMenuDarkMode.png'
+                        : 'asset/icon/iconMenuLightMode.png')
+                    //  size: 48.0,
+                    //color: Colors.green,
+                    ),
                 label: "Menu",
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('asset/icon/Iauthor.png'),
-                  //  size: 48.0,
-                  //color: Colors.green,
-                ),
+                icon: ImageIcon(AssetImage(isDark
+                        ? 'asset/icon/iconAuthorDarkMode.png'
+                        : 'asset/icon/iconAuthorLightMode.png')
+                    //  size: 48.0,
+                    //color: Colors.green,
+                    ),
                 label: "Member",
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage('asset/icon/Isetting.png'),
-                  //  size: 48.0,
-                  //color: Colors.green,
-                ),
+                icon: ImageIcon(AssetImage(isDark
+                        ? 'asset/icon/iconSettingDarkMode.png'
+                        : 'asset/icon/iconSettingLightMode.png')
+                    //  size: 48.0,
+                    //color: Colors.green,
+                    ),
                 label: "Setting",
               ),
             ]),

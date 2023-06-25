@@ -35,14 +35,13 @@ class listArticel extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   child: img != ""
                       ? FadeInImage(
-                          placeholder: NetworkImage(
-                              "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"),
+                          placeholder:
+                              AssetImage("asset/artikel/imgKosong.jpg"),
                           image: NetworkImage(img ?? ''),
                           fit: BoxFit.cover,
                         )
                       : Image(
-                          image: NetworkImage(
-                              "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"),
+                          image: AssetImage("asset/artikel/imgKosong.jpg"),
                           fit: BoxFit.cover,
                         ),
                 ),
@@ -73,21 +72,31 @@ class listArticel extends StatelessWidget {
                       height: 14,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 27,
-                          width: 27,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("asset/profil.png")),
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.amber),
-                        ),
-                        SizedBox(
-                          width: 8,
+                        Row(
+                          children: [
+                            Container(
+                              height: 27,
+                              width: 27,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage("asset/profil.png")),
+                                  borderRadius: BorderRadius.circular(50),
+                                  color: Colors.amber),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              "${autor}",
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w500),
+                            ),
+                          ],
                         ),
                         Text(
-                          "${autor}   ${tgl}",
+                          "${tgl}",
                           style: TextStyle(
                               fontSize: 12, fontWeight: FontWeight.w500),
                         )

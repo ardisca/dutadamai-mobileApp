@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controler/ArtikelController.dart';
 import 'package:flutter_application_1/page/List/list_page.dart';
 import 'package:lottie/lottie.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,9 @@ class category extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page("Warta", "4", ""));
+                  //cek dulu
+                  Get.to(list_page(
+                      categori: "Warta", idCategori: "4", search: ""));
                 },
                 child: Container(
                   width: 120,
@@ -38,8 +41,8 @@ class category extends StatelessWidget {
                         ),
                         Text("Warta",
                             style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                            )),
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black)),
                       ],
                     ),
                   ),
@@ -54,7 +57,8 @@ class category extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page("Urun Ide", "5", ""));
+                  Get.to(list_page(
+                      categori: "Urun Ide", idCategori: "5", search: ""));
                 },
                 child: Container(
                   width: 120,
@@ -67,8 +71,8 @@ class category extends StatelessWidget {
                         Lottie.asset('asset/animationC/a.json', height: 114),
                         Text("Urun Ide",
                             style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                            )),
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black)),
                       ],
                     ),
                   ),
@@ -83,7 +87,10 @@ class category extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page("Bercerita", "1797", ""));
+                  Get.to(
+                    list_page(
+                        categori: "Bercerita", idCategori: "1797", search: ""),
+                  );
                 },
                 child: Container(
                   width: 120,
@@ -96,8 +103,8 @@ class category extends StatelessWidget {
                         Lottie.asset('asset/animationC/b.json', height: 114),
                         Text("Bercerita",
                             style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                            )),
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black)),
                       ],
                     ),
                   ),
@@ -112,7 +119,12 @@ class category extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page("Sajakk", "1798", ""));
+                  Get.put<ArtikelController>(ArtikelController("1798", "", ""));
+                  Get.to(() => list_page(
+                        categori: "Sajak",
+                        idCategori: "1798",
+                        search: "",
+                      ));
                 },
                 child: Container(
                   width: 120,
@@ -127,8 +139,8 @@ class category extends StatelessWidget {
                         ),
                         Text("Sajak",
                             style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                            )),
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black)),
                       ],
                     ),
                   ),

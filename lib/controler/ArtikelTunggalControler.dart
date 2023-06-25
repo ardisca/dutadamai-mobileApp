@@ -4,8 +4,8 @@ import 'dart:convert';
 
 import '../model/list_artikel.dart';
 
-class ArtikelController extends GetxController {
-  ArtikelController(
+class ArtikelTunggalController extends GetxController {
+  ArtikelTunggalController(
     this.categori,
     this.search,
     this.tes,
@@ -14,7 +14,7 @@ class ArtikelController extends GetxController {
   String search;
   String tes;
   var artikelList = <ListArtikel>[].obs;
-  var currentPage = 10;
+  var currentPage = 1;
   @override
   void onInit() {
     fetchArtikelList();

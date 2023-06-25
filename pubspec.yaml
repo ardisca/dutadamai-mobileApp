@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   http: ^1.0.0
+  bottom_drawer: ^0.0.5
   html: ^0.15.4
   html_unescape: ^2.0.0
   flutter_html: ^3.0.0-alpha.3
@@ -37,6 +38,8 @@ dependencies:
   page_transition: ^2.0.1-nullsafety.0
   lottie: ^2.3.2
   google_fonts: ^5.0.0
+  card_swiper: ^2.0.4
+  share_social_network: ^1.2.9
   flutter:
     sdk: flutter
 
@@ -76,6 +79,7 @@ flutter:
     - asset/profil.png
     - asset/
     - asset/menu/
+    - asset/artikel/imgKosong.jpg
     - asset/avatar/
     - asset/logoBNPTRI.png
     - asset/icon/

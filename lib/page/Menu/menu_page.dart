@@ -48,7 +48,10 @@ class menu_page extends StatelessWidget {
                         children: [
                           InkWell(
                             onTap: () {
-                              Get.to(list_page("Menu", "", ""));
+                              Get.to(list_page(
+                                  categori: "Menu",
+                                  idCategori: "",
+                                  search: ""));
                             },
                             child: Container(
                               height: 75,

@@ -4,8 +4,8 @@ import 'dart:convert';
 
 import '../model/list_artikel.dart';
 
-class ArtikelController extends GetxController {
-  ArtikelController(
+class ListHomeControler extends GetxController {
+  ListHomeControler(
     this.categori,
     this.search,
     this.tes,
@@ -14,7 +14,7 @@ class ArtikelController extends GetxController {
   String search;
   String tes;
   var artikelList = <ListArtikel>[].obs;
-  var currentPage = 10;
+  var currentPage = 5;
   @override
   void onInit() {
     fetchArtikelList();
@@ -24,19 +24,18 @@ class ArtikelController extends GetxController {
   void fetchArtikelList() async {
     print('categori: $categori');
     print('search: $search');
-
     print('INI TEST: $tes');
-    var url =
-        'https://dutadamaijawatimur.id/wp-json/wp/v2/posts?per_page=$currentPage&page=1';
+    var url1 =
+        'https://dutadamaijawatimur.id/wp-json/wp/v2/posts?per_page=$currentPage&page=2';
     if (categori != "") {
-      url += '&categories=$categori';
+      url1 += '&categories=$categori';
     }
     if (search != "") {
-      url += '&search=$search';
+      url1 += '&search=$search';
     }
 
     try {
-      var response = await http.get(Uri.parse(url));
+      var response = await http.get(Uri.parse(url1));
 
       if (response.statusCode == 200) {
         var data = json.decode(response.body) as List<dynamic>;

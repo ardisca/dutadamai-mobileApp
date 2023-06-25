@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/page/List/list_page.dart';
 //import 'package:flutter_application_1/page/Thems/thema.dart';
 import 'package:flutter_application_1/page/splash.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,11 +19,11 @@ class FirstPage extends StatelessWidget {
     );
 
     return GetMaterialApp(
-      //title: 'Dark Mode Example',
-      theme: lightTheme,
-      darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.system,
-      home: splashscreen(),
-    );
+        //title: 'Dark Mode Example',
+        theme: lightTheme,
+        darkTheme: ThemeData.dark(),
+        themeMode: ThemeMode.system,
+        //home: splashscreen(),
+        home: splashscreen());
   }
 }

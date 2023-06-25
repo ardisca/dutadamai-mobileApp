@@ -4,8 +4,8 @@ import 'dart:convert';
 
 import '../model/list_artikel.dart';
 
-class ArtikelController extends GetxController {
-  ArtikelController(
+class BoxArtikelController extends GetxController {
+  BoxArtikelController(
     this.categori,
     this.search,
     this.tes,
