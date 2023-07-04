@@ -124,7 +124,10 @@ class home_page extends StatelessWidget {
                       waktu(artikelTgl1.date),
                       _parseHtmlString(artikelTgl1.excerpt.rendered),
                       artikelTgl1.jetpackFeaturedMediaUrl,
-                      _parseHtmlString(artikelTgl1.content.rendered));
+                      _parseHtmlString(artikelTgl1.content.rendered)
+                          .replaceAll(RegExp('\n\n\n\n'), '\n\n'),
+                      artikelTgl1.jetpackShortlink,
+                      _parseHtmlString(artikelTgl1.excerpt.rendered));
                 }
               }),
               // trendingRead(
@@ -142,7 +145,7 @@ class home_page extends StatelessWidget {
                     SizedBox(
                       width: 25,
                     ),
-                    Text("Trendeing",
+                    Text("Latest Articles",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
                     SizedBox(
@@ -164,8 +167,11 @@ class home_page extends StatelessWidget {
                       "Duta Damai Jatim",
                       waktu(artikelTgl11.date),
                       artikelTgl11.jetpackFeaturedMediaUrl,
-                      _parseHtmlString(artikelTgl11.content.rendered),
-                      "Warta"
+                      _parseHtmlString(artikelTgl11.content.rendered)
+                          .replaceAll(RegExp('\n\n\n\n'), '\n\n'),
+                      "Warta",
+                      artikelTgl11.jetpackShortlink,
+                      artikelTgl11.excerpt.rendered
                       //artikelTgl11.categories.join(", "),
                       );
                 }
@@ -207,8 +213,11 @@ class home_page extends StatelessWidget {
                         judul: _parseHtmlString(artikel12.title.rendered),
                         tgl: waktu(artikel12.date),
                         img: artikel12.jetpackFeaturedMediaUrl,
-                        isi: _parseHtmlString(artikel12.content.rendered),
+                        isi: _parseHtmlString(artikel12.content.rendered)
+                            .replaceAll(RegExp('\n\n\n\n'), '\n\n'),
                         catgr: ktgrs,
+                        url: artikel12.jetpackShortlink,
+                        deskripsi: _parseHtmlString(artikel12.excerpt.rendered),
                       );
                     },
                   );
@@ -228,12 +237,16 @@ class listArtikel1 extends StatelessWidget {
       required this.tgl,
       required this.img,
       required this.isi,
-      required this.catgr});
+      required this.catgr,
+      required this.url,
+      required this.deskripsi});
   String judul;
   String tgl;
   String img;
   String isi;
   String catgr;
+  String url;
+  String deskripsi;
 
   @override
   Widget build(BuildContext context) {
@@ -242,7 +255,7 @@ class listArtikel1 extends StatelessWidget {
         GestureDetector(
           onTap: () {
             // Aksi yang ingin dilakukan saat widget diklik
-            Get.to(artikel_page(judul, catgr, img, tgl, isi));
+            Get.to(artikel_page(judul, catgr, img, tgl, isi, url, deskripsi));
           },
           child: listArticel(
             judul,

@@ -4,13 +4,16 @@ import 'package:get/get.dart';
 import '../../Artikel/artikel_page.dart';
 
 class box2 extends StatelessWidget {
-  box2(this.judul, this.author, this.tgl, this.img, this.isi, this.ktgr);
+  box2(this.judul, this.author, this.tgl, this.img, this.isi, this.ktgr,
+      this.url, this.deskripsi);
   String judul;
   String author;
   String tgl;
   String img;
   String isi;
   String ktgr;
+  String url;
+  String deskripsi;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -36,7 +39,7 @@ class box2 extends StatelessWidget {
           padding: const EdgeInsets.only(left: 25, right: 25),
           child: InkWell(
             onTap: () {
-              Get.to(artikel_page(judul, ktgr, img, tgl, isi));
+              Get.to(artikel_page(judul, ktgr, img, tgl, isi, url, deskripsi));
             },
             child: Container(
               padding: EdgeInsets.only(left: 16, right: 16, bottom: 20),

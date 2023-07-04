@@ -1,16 +1,24 @@
-import 'dart:ffi';
-
+import 'dart:io';
+import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:html/parser.dart' as html;
+//import 'package:share_social_network/share_social_network.dart';
 
 class artikel_page extends StatelessWidget {
-  artikel_page(this.judul, this.categr, this.img, this.tgl, this.isi);
-
+  artikel_page(this.judul, this.categr, this.img, this.tgl, this.isi, this.url,
+      this.deskripsi);
+  String url;
+  String deskripsi;
+  final String imageUrl = "https://example.com/image.jpg";
   String judul;
   String categr;
   String img;
   String tgl;
   String isi;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +53,11 @@ class artikel_page extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: Color(0xFFD9F5D2),
                             borderRadius: BorderRadius.circular(7.5)),
-                        child: Center(child: Text("${categr}")),
+                        child: Center(
+                            child: Text(
+                          "${categr}",
+                          style: TextStyle(color: Colors.black),
+                        )),
                       ),
                     ),
                   ],
@@ -130,7 +142,36 @@ class artikel_page extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Icon(Icons.share),
+                  IconButton(
+                    icon: Icon(Icons.share),
+                    onPressed: () async {
+                      //Share LINK
+                      // await Share.share(
+                      //     "$judul\n\n$deskripsi\nBaca selengkapnya $url");
+                      //Share Image
+                      final urlImage = img.isEmpty
+                          ? 'https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg'
+                          : img;
+                      final response = await http.get(Uri.parse(urlImage));
+                      if (response.statusCode == 200) {
+                        final bytes = response.bodyBytes;
+
+                        final temp = await getTemporaryDirectory();
+                        final path = "${temp.path}/image.jpg";
+                        File(path).writeAsBytesSync(bytes);
+
+                        print("object");
+                        //final xFile = XFile(path);
+                        await Share.shareXFiles([XFile(path)],
+                            text:
+                                "$judul\n\n${_parseHtmlString(deskripsi)}\nBaca selengkapnya $url");
+                        //await Share.share("$judul $url");
+                      } else {
+                        print(
+                            'Gagal mengunduh gambar. Kode status: ${response.statusCode}');
+                      }
+                    },
+                  ),
                 ],
               ),
             ),
@@ -161,4 +202,9 @@ class artikel_page extends StatelessWidget {
       )),
     );
   }
+}
+
+String _parseHtmlString(String htmlString) {
+  var text = html.parse(htmlString).body!.text;
+  return text;
 }

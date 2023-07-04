@@ -11,8 +11,14 @@ class splashscreen extends StatelessWidget {
     return SafeArea(
       child: Center(
         child: Container(
+          width: double.infinity,
+          height: double.infinity,
           decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("asset/bg.png"))),
+              color: Colors.white,
+              image: DecorationImage(
+                image: AssetImage("asset/bg.png"),
+                fit: BoxFit.cover,
+              )),
           child: AnimatedSplashScreen(
             duration: 5500,
             splashTransition: SplashTransition.fadeTransition,
@@ -34,7 +40,7 @@ class splashscreen extends StatelessWidget {
                   "Aplikasi Damai",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      //color: Colors.white,
+                      color: Colors.black,
                       fontSize: 25),
                 ),
                 SizedBox(
@@ -43,14 +49,14 @@ class splashscreen extends StatelessWidget {
                 Text(
                   "Dipersembahkan Oleh",
                   style: TextStyle(
-                    //color: Colors.white,
+                    color: Colors.black,
                     fontSize: 12.5,
                   ),
                 ),
                 Text(
                   "Duta Damai Jawa Timur",
                   style: TextStyle(
-                    //color: Colors.white,
+                    color: Colors.black,
                     fontSize: 12.5,
                   ),
                 )

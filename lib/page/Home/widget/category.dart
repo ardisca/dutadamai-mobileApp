@@ -23,7 +23,7 @@ class category extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   //cek dulu
-                  Get.to(list_page(
+                  Get.to(() => list_page(
                       categori: "Warta", idCategori: "4", search: ""));
                 },
                 child: Container(
@@ -57,7 +57,7 @@ class category extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(list_page(
+                  Get.to(() => list_page(
                       categori: "Urun Ide", idCategori: "5", search: ""));
                 },
                 child: Container(
@@ -88,7 +88,7 @@ class category extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Get.to(
-                    list_page(
+                    () => list_page(
                         categori: "Bercerita", idCategori: "1797", search: ""),
                   );
                 },

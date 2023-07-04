@@ -32,7 +32,9 @@ class Box1Aksi extends StatelessWidget {
                         artikel1.jetpackFeaturedMediaUrl,
                         waktu(artikel1.date),
                         _parseHtmlString(artikel1.content.rendered)
-                            .replaceAll(RegExp('\n\n\n\n'), '\n\n')));
+                            .replaceAll(RegExp('\n\n\n\n'), '\n\n'),
+                        artikel1.jetpackShortlink,
+                        _parseHtmlString(artikel1.excerpt.rendered)));
                   },
                   child: Box1(
                     _parseHtmlString(artikel1.title.rendered),

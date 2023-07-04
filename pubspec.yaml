@@ -39,7 +39,12 @@ dependencies:
   lottie: ^2.3.2
   google_fonts: ^5.0.0
   card_swiper: ^2.0.4
-  share_social_network: ^1.2.9
+  # share_social_network: ^1.2.9
+  share_plus: ^7.0.2
+  path_provider: ^2.0.15
+  permission_handler: ^10.4.1
+  dio: ^4.0.0
+
   flutter:
     sdk: flutter
 
@@ -78,6 +83,7 @@ flutter:
     - asset/logo1.png
     - asset/profil.png
     - asset/
+    - asset/ca/lets-encrypt-r3.pem
     - asset/menu/
     - asset/artikel/imgKosong.jpg
     - asset/avatar/

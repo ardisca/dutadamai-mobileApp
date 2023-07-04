@@ -5,7 +5,7 @@ import '../../Artikel/artikel_page.dart';
 
 class trendingRead extends StatelessWidget {
   trendingRead(this.judul, this.kategori, this.author, this.tgl, this.isi,
-      this.img, this.isiR);
+      this.img, this.isiR, this.url, this.deskripsi);
   String judul;
   String kategori;
   String author;
@@ -13,6 +13,8 @@ class trendingRead extends StatelessWidget {
   String isi;
   String isiR;
   String img;
+  String url;
+  String deskripsi;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -163,7 +165,8 @@ class trendingRead extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: ElevatedButton(
             onPressed: () {
-              Get.to(artikel_page(judul, "Urun Ide", img, tgl, isiR));
+              Get.to(artikel_page(
+                  judul, "Urun Ide", img, tgl, isiR, url, deskripsi));
             },
             child: Text(
               "Read Full Story",
